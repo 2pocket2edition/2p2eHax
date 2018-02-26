@@ -14,10 +14,6 @@ var MainActivity = ctx;
 
 //Get language of client side minecraft
 var getLanguage = ModPE.getLanguage();
-/*Thanks to godsoft029 and many others for german translate*/
-/*Thanks to MasterProGame & TheNewHEROBRINE for italian translate*/
-/*Thanks to walpo for spanish translate*/
-/*Thanks to johnmacrocraft for korean translate*/
 
 //get version of client side minecraft
 var getVer = ModPE.getMinecraftVersion();
@@ -88,18 +84,6 @@ var text = "§4§kI§r§c 2p2eHax §4§kI§r";
 var space = " ";
 //define version
 var version = "1.0.0";
-//tracer define length
-var chestTracersRange = 10;
-//tracer define mode
-var chestTracersGroundMode = "on";
-//tracer define particle
-var chestTracersParticle = "on";
-var playerTracersRange = 10;
-var playerTracersGroundMode = "on";
-var playerTracersParticle = "on";
-var oreTracersRange = 10;
-var oreTracersGroundMode = "on";
-var oreTracersParticle = "on";
 var offtime = 0;
 //define an empty text variable
 var horseheart = "";
@@ -161,7 +145,6 @@ var onBackground = {
 
 //player check utils
 var Utils = {
-
     Block: {
         isLiquid: function(id) {
             if (id >= 8 && id <= 11) return true;
@@ -222,122 +205,21 @@ var Utils = {
 //define on or off variables
 var liquidwalk = false;
 var xray = false;
-var ttot = false;
-var antivoid = false;
-var armor = false;
-var coords = false;
-var glide = false;
-var tapspam = false;
-var tapdestroy = false;
-var block = false;
-var taptp = false;
-var sign = false;
-var autodestroy = false;
-var autospam = false;
-var autodestroy2 = false;
-var autospam2 = false;
 var onlyday = false;
 var onlynight = false;
 var chestesp = false;
-var tapnuke = false;
-var autonuke = false;
-var antispam = false;
-var antispam2 = false;
-var playeresp = false;
-var oreEsp = false;
-var lightningaura = false;
-var tapid = false;
-var horsehealth = false;
-var getage = false;
-var setage = false;
 var noclip = false;
-var extraj = false;
-var getvel = false;
 var yawpitch = false;
 var airwalk = false;
-var paimaura = false;
-var maimaura = false;
-var aim;
-var aimbot = false;
-var aimed = false;
-var aim2;
-var aimbot2 = false;
-var aimed2 = false;
 var changeSpeed = false;
 var brightness = false;
-var lowhealth = false;
-var fasteat = false;
-var oreEsp2 = false;
-var hackk2 = false;
 var autowalk = false;
 var jetpack = false;
-var morphEnhance = false;
-var twerk = false;
-var tpAura = false;
-var hitBehind = false;
 var nametags = false;
-var attackActions = false;
-var keepHotbar = false;
-var itemIndi = false;
-var bhop = false;
-var alphatext = false;
-var binarytext = false;
-var zalgotext = false;
-var striketext = false;
-var belowblock = false;
-var preventsame = false;
 var hitparticles = false;
-var icewalk = false;
 
 var elytraPlus = false;
 var step = false;
-
-var facedInfo = false;
-var tapParti = false;
-var hitmorph = false;
-var hitaction2 = false;
-var hitrmef = false;
-var onfriction = false;
-
-var showActive = false;
-var showActive2 = false;
-var betaTestMenu = false;
-var defaultbtnc = true
-
-var lightning = false;
-var primedtnt = false;
-var arrow = false;
-var exporb = false;
-
-//old variables
-var hackk = false;
-var showp = false;
-var fch = false;
-var saddle = false;
-var instakilled = false;
-var instabreak = false;
-var stackheart = false;
-var parti = false;
-var parti2 = false;
-var nowalls = false;
-var grief = false;
-var killaura = false;
-var killfaura = false;
-var uirender = false;
-var stat22 = false;
-var healthy = true;
-var infhun = false;
-var firepunch = false;
-var deadchat = false;
-var nofly = false;
-var autod = false;
-var remode = false;
-var somd = false;
-var desktop = false;
-var killdaura = false;
-var ban = false;
-var useFire = false;
-var useNether = false;
 
 //ParticleType.angryVillager;
 var particle1 = false;
@@ -490,121 +372,6 @@ AlphaHack.drawTracer = function(x, y, z, groundMode, particleName) {
     }
 }
 
-function getUpdate(callback) {
-    var r = new java.lang.Runnable({
-        run: function() {
-            try {
-                /*var c = u.openConnection();
-                c.setRequestMethod("GET");
-                c.setDoOutput(true);
-                c.connect();
-                c.getContentLength();
-                var input = c.getInputStream();
-                var contents = java.lang.reflect.Array.newInstance(java.lang.Byte.TYPE, 1024);
-                var bytesRead = 0;
-                var strFileContents;
-                while((bytesRead = input.read(contents)) != -1) {
-                    strFileContents = new java.lang.String(contents, 0, bytesRead);
-                }
-                var update;
-                var update = strFileContents;
-                var update = JSON.parse(strFileContents+"");
-
-if(update.status.equals("success")){
-callback(new Array(update.version));
-}else{
-print("Error");
-callback(new Array("Error"));
-}*/
-                var u = new java.net.URL("https://raw.githubusercontent.com/ArceusMatt/AlphaHack-v2/master/Version.txt");
-                var update = new java.lang.StringBuilder();
-                var reader = new java.io.BufferedReader(new java.io.InputStreamReader(u.openStream()));
-                var line = "";
-                while ((line = reader.readLine()) != null) {
-                    update.append(line);
-                }
-                reader.close();
-                newUpdate = update.toString();
-                if (newUpdate != version) {
-                    Toast.makeText(MainActivity, "AlphaHackPE: New update!", 1).show()
-                    startUp();
-                }
-            } catch (e) {
-
-                print(e + "");
-
-                /*print(e.lineNumber);*/
-
-            }
-        }
-    });
-    var th = new java.lang.Thread(r);
-    th.start();
-}
-getUpdate(function(info) {});
-
-function startUp() {
-    MainActivity.runOnUiThread(new Runnable({
-        run: function() {
-            try {
-                var updiaLayout = new LinearLayout(MainActivity);
-                var updiaScroll = new ScrollView(MainActivity);
-                var updiaLayout1 = new LinearLayout(MainActivity);
-                updiaLayout.setOrientation(1);
-                updiaLayout1.setOrientation(1);
-                updiaScroll.addView(updiaLayout);
-                updiaLayout1.addView(updiaScroll);
-
-                var text1 = new TextView(MainActivity);
-                text1.setText("\n\n\nA new update is available.\nBug fixes, less crashes, new features & more!\nWould you like to update AlphaHack v2?\nCurret version: " + version + "\n");
-                text1.setTextColor(Color.WHITE);
-                text1.setPadding(10, 20, 130, 20);
-                updiaLayout.addView(text1);
-
-                var doubleLayout = new LinearLayout(MainActivity);
-
-                textView1 = new Button(MainActivity);
-                textView1.setText("Later");
-                textView1.setTextColor(Color.BLUE);
-                textView1.setPadding(185, 10, 185, 10);
-                textView1.setOnClickListener(new View.OnClickListener({
-                    onClick: function(viewarg) {
-                        updia.dismiss();
-                    }
-                }));
-                doubleLayout.addView(textView1);
-
-                textView2 = new Button(MainActivity);
-                textView2.setText("Update");
-                textView2.setTextColor(Color.BLUE);
-                textView2.setPadding(185, 10, 185, 10);
-                textView2.setOnClickListener(new View.OnClickListener({
-                    onClick: function(viewarg) {
-                        var urls5 = new Intent(MainActivity);
-                        urls5.setAction(Intent.ACTION_VIEW);
-                        urls5.setData(Uri.parse("https://arceusmatt.github.io/alphahack"));
-                        MainActivity.startActivity(urls5);
-                    }
-                }));
-                doubleLayout.addView(textView2);
-
-                updiaLayout.addView(doubleLayout);
-
-                updia = new PopupWindow(updiaLayout1, MainActivity.getWindowManager().getDefaultDisplay().getWidth() / 1.01, MainActivity.getWindowManager().getDefaultDisplay().getHeight() / 1.01);
-                var bg = new android.graphics.drawable.GradientDrawable();
-                bg.setColor(Color.BLACK);
-                bg.setStroke(10, Color.BLUE);
-                updiaLayout1.setBackgroundDrawable(bg);
-                updiaLayout1.setPadding(20, 1, 20, 1);
-                updia.showAtLocation(MainActivity.getWindow().getDecorView(), Gravity.CENTER | Gravity.CENTER, 0, 0);
-            } catch (error) {
-                Toast.makeText(MainActivity, "Update updia, Error: " + error, 1).show();
-            }
-        }
-    }));
-}
-
-
 //run mod message or other on world startup
 function newLevel() {
     clientMessage("§c-----=====≡≡≡≡≡ 2p2eHax ≡≡≡≡≡=====-----§f§r");
@@ -613,14 +380,7 @@ function newLevel() {
 }
 
 //change mcpe color text with the remaining text
-//they re did the entire paths for files in 0.17 -,-
-ModPE.langEdit("menu.copyright", "2p2eHax");
-ModPE.langEdit("menu.generatingLevel", "Loading... §c§k§lIIIIIIII§r");
-ModPE.langEdit("menu.generatingTerrain", "Loading... §c§k§lIIIIIIII§r");
-ModPE.langEdit("menu.loadingLevel", "Loading... §c§k§lIIIIIIII§r");
-ModPE.langEdit("progressScreen.generating", "Loading... §c§k§lIIIIIIII§r");
-ModPE.langEdit("progressScreen.message.building", "Loading... §c§k§lIIIIIIII§r");
-ModPE.langEdit("progressScreen.message.locating", "Loading... §c§k§lIIIIIIII§r");
+ModPE.langEdit("menu.copyright", "§4§kII §r§c2p2eHax §4§kII§r§f");
 ModPE.langEdit("selectServer.edit", viddd + ModPE.getI18n("selectServer.edit"));
 ModPE.langEdit("selectServer.deleteButton", "§c" + ModPE.getI18n("selectServer.deleteButton"));
 ModPE.langEdit("menu.play", viddd + ModPE.getI18n("menu.play"));
@@ -740,30 +500,6 @@ ModPE.langEdit("selectWorld.createNew", viddd + ModPE.getI18n("selectWorld.creat
 ModPE.langEdit("addExternalServerScreen.saveButtonLabel", viddd + ModPE.getI18n("addExternalServerScreen.saveButtonLabel"));
 ModPE.langEdit("addExternalServerScreen.playButtonLabel", viddd + ModPE.getI18n("addExternalServerScreen.playButtonLabel"));
 ModPE.langEdit("addExternalServerScreen.removeButtonLabel", viddd + ModPE.getI18n("addExternalServerScreen.removeButtonLabel"));
-
-//new block destroy time
-var defaultDestroyTime = [
-    null, 1.5, 0.6, 0.5, 2, 2, 0, -1, null, null, null, null,
-    0.5, 0.6, 3, 3, 3, 2, 0.2, 0.6, 0.3, 3, 3, null, 0.8, null,
-    0.2, 0.7, null, null, 4, 0, 0, null, null, 0.8, null, 0,
-    0, 0, 0, 3, 5, 2, 2, 2, 0, 1.5, 2, 50, 0, 0, null, 2, 2.5,
-    null, 3, 5, 2.5, 0, 0.6, 3.5, 3.5, 1, 3, 0.4, 0.7, 2, 1,
-    null, null, 5, null, 3, 3, null, null, null, 0.1, 0.5, 0.2,
-    0.4, 0.6, 0, null, 2, 1, 0.4, 0.3, null, 1, 0.5, null, null, -1, 3, null, 1.5, null, null, 5, 0.3, 1, 0, 0, null, 2, 2,
-    1.5, null, null, 2, null, 2, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, 0.8, null,
-    null, null, null, null, 2, 2, 2, null, null, 2, null, 0, 0,
-    null, null, null, null, null, null, null, null, null, null,
-    null, null, 0.8, 0.8, 2, 2, null, null, null, null, null, null,
-    null, null, null, null, null, 0.5, 0.1, 5, null, null, null,
-    null, null, null, null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, null, null, null,
-    null, 0, 3.5, 50, 5, 0.6, 0.6, 5, null, null, null, null, 0
-];
 
 //layout dip2px
 function dip2px(dips) {
@@ -936,7 +672,6 @@ function showMenuBtn() {
                 if (hide == true) menuBtn4.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 GUI4.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 GUI4.showAtLocation(MainActivity.getWindow().getDecorView(), Gravity.LEFT | Gravity.TOP, 0, 128);
-
             } catch (err) {
                 //Toast.makeText(MainActivity, "An error occured: " + err, 1).show();
                 //For some reason there's always an error here, so i'll ignore it
@@ -947,169 +682,6 @@ function showMenuBtn() {
 showMenuBtn();
 
 //layout to show active variables
-
-/*
-*
-*TODO Improve this in some way.
-*
-function activeView(){
-MainActivity.runOnUiThread(new Runnable({ run: function(){
-        try{
-            var activeLayout = new LinearLayout(MainActivity);
-            
-            var activeScroll = new ScrollView(MainActivity);
-            
-            var activeLayout1 = new LinearLayout(MainActivity);
-            activeLayout.setOrientation(1);
-            activeLayout1.setOrientation(1);
-            
-            activeScroll.addView(activeLayout);
-            activeLayout1.addView(activeScroll);
-			
-	    var a1 = new TextView(MainActivity);
-            a1.setTextSize(10);
-            if(paimaura==true)a1.setText("Player aura");
-            if(paimaura==false)a1.setText("");
-	    if(paimaura==false)a1.setTextColor(Color.RED);
-            if(paimaura==true)a1.setTextColor(Color.GREEN);
-			a1.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a1.setTextColor(Color.RED);
-aimbot = false;
-aimed = false;
-paimaura = false;
-			}
-		});
-		activeLayout.addView(a1);
-		
-		var a2 = new TextView(MainActivity);
-            a2.setTextSize(10);
-            if(liquidwalk==true)a2.setText("LiquidWalk");
-            if(liquidwalk==false)a2.setText("");
-	    if(liquidwalk==false)a2.setTextColor(Color.RED);
-            if(liquidwalk==true)a2.setTextColor(Color.GREEN);
-			a2.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a2.setTextColor(Color.RED);
-			 liquidwalk = false;
-			}
-		});
-		activeLayout.addView(a2);
-					 
-		var a3 = new TextView(MainActivity);
-            a3.setTextSize(10);
-            if(xray==true)a3.setText("X-ray");
-            if(xray==false)a3.setText("");
-	    if(xray==false)a3.setTextColor(Color.RED);
-            if(xray==true)a3.setTextColor(Color.GREEN);
-			a3.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a3.setTextColor(Color.RED);
-			 xray = false;
-			}
-		});
-		activeLayout.addView(a3);
-		
-		var a4 = new TextView(MainActivity);
-            a4.setTextSize(10);
-            if(glide==true)a4.setText("Glide");
-            if(glide==false)a4.setText("");
-	    if(glide==false)a4.setTextColor(Color.RED);
-            if(glide==true)a4.setTextColor(Color.GREEN);
-			a4.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a4.setTextColor(Color.RED);
-			 glide = false;
-			}
-		});
-		activeLayout.addView(a4);
-		
-		var a5 = new TextView(MainActivity);
-            a5.setTextSize(10);
-            if(autospam==true)a5.setText("AutoSpam");
-            if(autospam==false)a5.setText("");
-	    if(autospam==false)a5.setTextColor(Color.RED);
-            if(autospam==true)a5.setTextColor(Color.GREEN);
-			a5.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a5.setTextColor(Color.RED);
-			 autospam = false;
-			 autospam2 = false;
-			}
-		});
-		activeLayout.addView(a5);
-		
-		var a6 = new TextView(MainActivity);
-            a6.setTextSize(10);
-            if(autospam==true)a6.setText("AutoDestroy");
-            if(extraj==true)a6.setText("AutoDestroy 2");
-            if(autospam==false)a6.setText("");
-	    if(autospam==false)a6.setTextColor(Color.RED);
-            if(autospam==true)a6.setTextColor(Color.GREEN);
-			a6.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a6.setTextColor(Color.RED);
-			 autodestroy = false;
-			 autodestroy2 = false;
-			 extraj = false;
-			}
-		});
-		activeLayout.addView(a6);
-		
-		var a7 = new TextView(MainActivity);
-            a7.setTextSize(10);
-            if(coords==true)a7.setText("XYZ");
-            if(coords==false)a7.setText("");
-	    if(coords==false)a7.setTextColor(Color.RED);
-            if(coords==true)a7.setTextColor(Color.GREEN);
-			a7.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a7.setTextColor(Color.RED);
-			 coords = false;
-			}
-		});
-		activeLayout.addView(a7);
-		
-		var a8 = new TextView(MainActivity);
-            a8.setTextSize(10);
-            if(chestesp==true)a8.setText("ChestESP");
-            if(chestesp==false)a8.setText("");
-	    if(chestesp==false)a8.setTextColor(Color.RED);
-            if(chestesp==true)a8.setTextColor(Color.GREEN);
-			a8.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a8.setTextColor(Color.RED);
-			 chestesp = false;
-			}
-		});
-		activeLayout.addView(a8);
-		
-		var a11 = new TextView(MainActivity);
-            a11.setTextSize(10);
-            if(autowalk==true)a11.setText("AutoWalk");
-            if(autowalk==false)a11.setText("");
-	    if(autowalk==false)a11.setTextColor(Color.RED);
-            if(autowalk==true)a11.setTextColor(Color.GREEN);
-			a11.setOnClickListener(new android.view.View.OnClickListener() {
-			onClick: function(v){
-             a11.setTextColor(Color.RED);
-			 autowalk = false;
-			}
-		});
-		activeLayout.addView(a11);
-
-active = new PopupWindow(activeLayout1, dip2px(46), dip2px(46));
-
-active = new PopupWindow(activeLayout1, MainActivity.getWindowManager().getDefaultDisplay().getWidth()/13, MainActivity.getWindowManager().getDefaultDisplay().getHeight()/3.5);
-active.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            active.showAtLocation(MainActivity.getWindow().getDecorView(), activePos | Gravity.TOP, 0, 120);
-            }catch(error){
-                Toast.makeText(MainActivity, "An error occured: " + error, 1).show();
-            }
-    }}));
-}*/
-
-/********************************/
 
 function mainMenu() {
     MainActivity.runOnUiThread(new Runnable({
